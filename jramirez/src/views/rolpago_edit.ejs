@@ -1,0 +1,45 @@
+<% include partials/_header %>
+
+
+<div class="container mt-5">
+    <div class="row">
+      <div class="col-md-12">
+        <table class="table table-bordered table-hover">
+          <thead>
+            <tr>
+              <td>ID</td>
+              <td>CÉDULA</td>
+              <td>NOMBRES</td>
+              <td>APELLIDOS</td>
+              <td>SUELDO</td>
+              <td>PRESTAMO</td>
+              <td>HORAS EXTRAS</td>
+              <td>IESS</td>
+              <td>TOTAL A RECIBIR</td>
+
+            </tr>
+          </thead>
+          <tbody>
+            <% if (data) { %>
+              <% for(var i = 0; i < data.length; i++) { %>
+                <tr>
+                  <td><%= (i + 1) %></td>
+                  <td><%= data[i].cedula %></td>
+                  <td><%= data[i].nombre %></td>
+                  <td><%= data[i].apellido %></td>                
+                  <td><%= data[i].sueldo %></td>  
+                  <td><%= data[i].monto %></td>  
+                  <td><%= data[i].numeroDeHoras %></td>  
+                  <td>9.35%</td>  
+
+                  <td><%= data[i].sueldo - (data[i].sueldo * 0.0935) + (data[i].numeroDeHoras * 2.2)  %></td>
+                </tr>
+              <% } %>
+            <% } %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  
+<% include partials/_footer %>
